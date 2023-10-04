@@ -21,10 +21,10 @@ class BottomBarScreen extends StatefulWidget {
 class _BottomBarScreenState extends State<BottomBarScreen> {
   final List<Widget> _pages = [
     QuraanScreen(),
-    AhadethScreen(),
-    SebhaScreen(),
-    RadioScreen(),
-    SettingsScreen(),
+    const AhadethScreen(),
+    const SebhaScreen(),
+    const RadioScreen(),
+    const SettingsScreen(),
   ];
 
   int _currentIndex = 0;
@@ -41,7 +41,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
   @override
   Widget build(BuildContext context) {
     Color backgroundcolor = Provider.of<ThemeProvider>(context).isDarkMode
-        ? Color(0xff141A2E)
+        ? const Color(0xff141A2E)
         : AppTheme.primaryColor;
 
     return Scaffold(
@@ -88,7 +88,7 @@ class _BottomBarScreenState extends State<BottomBarScreen> {
           ),
           BottomNavigationBarItem(
             backgroundColor: backgroundcolor,
-            icon: Icon(Icons.settings),
+            icon: const Icon(Icons.settings),
             label: AppLocalizations.of(context)!.settings,
           ),
         ],

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppTheme {
-  static Color primaryColor = Color(0xFFB7935F);
-  static Color blackColor = Color(0xFF242424);
-  static Color whiteColor = Color(0xFFF8F8F8);
+  static Color primaryColor = const Color(0xFFB7935F);
+  static Color blackColor = const Color(0xFF242424);
+  static Color whiteColor = const Color(0xFFF8F8F8);
   static ThemeData lightTheme = ThemeData(
     scaffoldBackgroundColor: Colors.transparent,
     textTheme: TextTheme(
-        displaySmall: TextStyle(
+        displaySmall: const TextStyle(
           color: Color(0xFF242424),
           fontSize: 12,
           fontWeight: FontWeight.w400,
@@ -48,7 +48,7 @@ class AppTheme {
         color: Colors.transparent,
         elevation: 0.0,
         centerTitle: true),
-    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
       type: BottomNavigationBarType.shifting,
       selectedItemColor: Color(0xffFACC1D),
       unselectedItemColor: Colors.white,

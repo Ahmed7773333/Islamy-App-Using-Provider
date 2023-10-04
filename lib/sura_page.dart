@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'app_theme.dart';
 import 'assets.dart';
 import 'models/sura_model.dart';
@@ -26,9 +25,10 @@ class _SurahPageState extends State<SurahPage> {
       loadFile(args.index);
     }
 
+    // ignore: non_constant_identifier_names
     Color CardColor = Provider.of<ThemeProvider>(context).isDarkMode
-        ? Color(0xff141A2E)
-        : Color(0xFFF8F8F8);
+        ? const Color(0xff141A2E)
+        : const Color(0xFFF8F8F8);
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(

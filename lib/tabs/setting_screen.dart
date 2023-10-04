@@ -10,8 +10,12 @@ class SettingsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Color inactiveDark = Color(0xFFFACC1D);
-    Color activeLight = Color(0xFFB7935F);
+    Provider.of<LanguageProvider>(context).loadLocale();
+    Provider.of<ThemeProvider>(context).loadTheme();
+
+    Color inactiveDark = const Color(0xFFFACC1D);
+    Color activeLight = const Color(0xFFB7935F);
+
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
@@ -29,33 +33,33 @@ class SettingsScreen extends StatelessWidget {
           children: [
             Row(
               children: [
-                Spacer(
+                const Spacer(
                   flex: 5,
                 ),
                 Text(
                   'Light',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                Spacer(),
+                const Spacer(),
                 Switch(
                   inactiveThumbColor: activeLight,
                   inactiveTrackColor: activeLight,
                   activeTrackColor: inactiveDark,
                   activeColor: inactiveDark,
                   value: Provider.of<ThemeProvider>(context).isDarkMode ||
-                      MediaQuery.of(context).platformBrightness ==
-                          ThemeData.dark(),
+                      // ignore: unrelated_type_equality_checks
+                      Theme.of(context).brightness == ThemeData.dark(),
                   onChanged: (value) {
                     Provider.of<ThemeProvider>(context, listen: false)
                         .toggleTheme();
                   },
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   'Dark',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                Spacer(
+                const Spacer(
                   flex: 5,
                 ),
               ],
@@ -65,14 +69,14 @@ class SettingsScreen extends StatelessWidget {
             ),
             Row(
               children: [
-                Spacer(
+                const Spacer(
                   flex: 4,
                 ),
                 Text(
                   'English',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                Spacer(),
+                const Spacer(),
                 Switch(
                   inactiveThumbColor: activeLight,
                   inactiveTrackColor: activeLight,
@@ -80,18 +84,18 @@ class SettingsScreen extends StatelessWidget {
                   activeColor: inactiveDark,
                   value: Provider.of<LanguageProvider>(context, listen: false)
                           .appLocale ==
-                      Locale('ar'),
+                      const Locale('ar'),
                   onChanged: (value) {
                     Provider.of<LanguageProvider>(context, listen: false)
                         .changeLanguage();
                   },
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   'عربي',
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
-                Spacer(
+                const Spacer(
                   flex: 5,
                 ),
               ],

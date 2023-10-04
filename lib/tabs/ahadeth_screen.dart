@@ -33,7 +33,7 @@ class AhadethScreen extends StatelessWidget {
                 AppLocalizations.of(context)!.islamy,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
-              Container(
+              SizedBox(
                   height: MediaQuery.of(context).size.height * (219 / 870),
                   width: MediaQuery.of(context).size.width * (312 / 412),
                   child: Image.asset(Assets().ahadethLogo)),
@@ -63,9 +63,7 @@ class AhadethScreen extends StatelessWidget {
                       },
                       child: Center(
                         child: Text(
-                          AppLocalizations.of(context)!.hadithNumber +
-                              ' ' +
-                              (index + 1).toString(),
+                          '${AppLocalizations.of(context)!.hadithNumber} ${index + 1}',
                           style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ),

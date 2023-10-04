@@ -13,22 +13,27 @@ void main(List<String> args) {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (context) => Counter(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => ThemeProvider(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => LanguageProvider(),
-        ),
+        ChangeNotifierProvider(create: (context) => Counter()),
+        ChangeNotifierProvider(create: (context) {
+          // ignore: non_constant_identifier_names
+          final ThemePro = ThemeProvider();
+          ThemePro.loadTheme();
+          return ThemePro;
+        }),
+        ChangeNotifierProvider(create: (context) {
+          final languageProvider = LanguageProvider();
+          languageProvider.loadLocale();
+          return languageProvider;
+        }),
       ],
-      child: IslamyApp(),
+      child: const IslamyApp(),
     ),
   );
 }
 
 class IslamyApp extends StatelessWidget {
+  const IslamyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
@@ -43,9 +48,9 @@ class IslamyApp extends StatelessWidget {
           themeProvider.isDarkMode ? AppTheme.darkTheme : AppTheme.lightTheme,
       initialRoute: BottomBarScreen.routeName,
       routes: {
-        BottomBarScreen.routeName: (context) => BottomBarScreen(),
-        SurahPage.routeName: (context) => SurahPage(),
-        HadethPage.routeName: (context) => HadethPage(),
+        BottomBarScreen.routeName: (context) => const BottomBarScreen(),
+        SurahPage.routeName: (context) => const SurahPage(),
+        HadethPage.routeName: (context) => const HadethPage(),
       },
     );
   }

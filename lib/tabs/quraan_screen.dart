@@ -7,6 +7,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../models/sura_model.dart';
 import '../providers/l_d_mode.dart';
 
+// ignore: must_be_immutable
 class QuraanScreen extends StatelessWidget {
   List<String> surahVerses = [
     "7", // Al-Fatiha
@@ -124,6 +125,8 @@ class QuraanScreen extends StatelessWidget {
     "5", // Al-Falaq
     "6", // An-Nas
   ];
+
+  QuraanScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -267,7 +270,7 @@ class QuraanScreen extends StatelessWidget {
                     AppLocalizations.of(context)!.islamy,
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
-                  Container(
+                  SizedBox(
                       height: MediaQuery.of(context).size.height * (227 / 870),
                       width: MediaQuery.of(context).size.width * (205 / 412),
                       child: Image.asset(Assets().quraanLogo)),
@@ -277,15 +280,15 @@ class QuraanScreen extends StatelessWidget {
                   ),
                   Row(
                     children: [
-                      Spacer(),
+                      const Spacer(),
                       Text(AppLocalizations.of(context)!.numberOfVerses,
                           style: Theme.of(context).textTheme.bodySmall!),
-                      Spacer(
+                      const Spacer(
                         flex: 2,
                       ),
                       Text(AppLocalizations.of(context)!.surahName,
                           style: Theme.of(context).textTheme.bodySmall!),
-                      Spacer(),
+                      const Spacer(),
                     ],
                   ),
                   Divider(
@@ -308,19 +311,19 @@ class QuraanScreen extends StatelessWidget {
                           },
                           child: Row(
                             children: [
-                              Spacer(),
+                              const Spacer(),
                               Text(
                                 surahVerses[index],
                                 style: Theme.of(context).textTheme.bodySmall,
                               ),
-                              Spacer(
+                              const Spacer(
                                 flex: 2,
                               ),
                               Text(
                                 suraNames[index],
                                 style: Theme.of(context).textTheme.bodySmall,
                               ),
-                              Spacer(),
+                              const Spacer(),
                             ],
                           ),
                         );

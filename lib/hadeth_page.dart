@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:intl/intl.dart';
 import 'package:islamy_app/models/hadeth_model.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'app_theme.dart';
 import 'assets.dart';
 import 'providers/l_d_mode.dart';
@@ -25,9 +23,10 @@ class _HadethPageState extends State<HadethPage> {
     if (verses.isEmpty) {
       loadFile(args.index);
     }
+    // ignore: non_constant_identifier_names
     Color CardColor = Provider.of<ThemeProvider>(context).isDarkMode
-        ? Color(0xff141A2E)
-        : Color(0xFFF8F8F8);
+        ? const Color(0xff141A2E)
+        : const Color(0xFFF8F8F8);
 
     return Container(
       decoration: BoxDecoration(
@@ -56,7 +55,7 @@ class _HadethPageState extends State<HadethPage> {
                 itemBuilder: (context, index) {
                   return Center(
                     child: Text(
-                      '${verses[index]}',
+                      verses[index],
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.bodySmall,
                     ),

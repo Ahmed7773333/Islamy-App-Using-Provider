@@ -11,14 +11,15 @@ class SebhaScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
     Color IconColor = Provider.of<ThemeProvider>(context).isDarkMode
-        ? Color(0xffFACC1D)
+        ? const Color(0xffFACC1D)
         : AppTheme.primaryColor;
     Color containerColor = Provider.of<ThemeProvider>(context).isDarkMode
-        ? Color(0xFF141A2E)
+        ? const Color(0xFF141A2E)
         : AppTheme.primaryColor;
-    String _verbs = Provider.of<Counter>(context).verbs;
-    String _curruntVerb = Provider.of<Counter>(context).curruntVerb;
+    String verbs = Provider.of<Counter>(context).verbs;
+    String curruntVerb = Provider.of<Counter>(context).curruntVerb;
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
@@ -40,7 +41,7 @@ class SebhaScreen extends StatelessWidget {
                 AppLocalizations.of(context)!.islamy,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height * (350 / 870),
                 child: Stack(
                   children: [
@@ -76,7 +77,7 @@ class SebhaScreen extends StatelessWidget {
                 height: MediaQuery.of(context).size.height * (43 / 870),
               ),
               Text(
-                '${AppLocalizations.of(context)!.number}${_verbs}',
+                '${AppLocalizations.of(context)!.number}$verbs',
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               SizedBox(
@@ -111,7 +112,7 @@ class SebhaScreen extends StatelessWidget {
                   ),
                 ),
                 child: Text(
-                  _curruntVerb,
+                  curruntVerb,
                   style: Theme.of(context)
                       .textTheme
                       .bodyMedium!

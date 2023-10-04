@@ -10,8 +10,9 @@ class RadioScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // ignore: non_constant_identifier_names
     Color IconColor = Provider.of<ThemeProvider>(context).isDarkMode
-        ? Color(0xffFACC1D)
+        ? const Color(0xffFACC1D)
         : AppTheme.primaryColor;
     return Container(
       decoration: BoxDecoration(
@@ -37,7 +38,7 @@ class RadioScreen extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height * (173 / 870),
               ),
-              Container(
+              SizedBox(
                   height: MediaQuery.of(context).size.height * (222 / 870),
                   width: MediaQuery.of(context).size.width * (412 / 412),
                   child: Image.asset(Assets().radios)),
@@ -54,7 +55,7 @@ class RadioScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Spacer(
+                  const Spacer(
                     flex: 3,
                   ),
                   IconButton(
@@ -65,7 +66,7 @@ class RadioScreen extends StatelessWidget {
                       size: 40,
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   IconButton(
                     onPressed: () {},
                     icon: Icon(
@@ -74,7 +75,7 @@ class RadioScreen extends StatelessWidget {
                       size: 40,
                     ),
                   ),
-                  Spacer(),
+                  const Spacer(),
                   IconButton(
                     onPressed: () {},
                     icon: Icon(
@@ -83,7 +84,7 @@ class RadioScreen extends StatelessWidget {
                       size: 40,
                     ),
                   ),
-                  Spacer(
+                  const Spacer(
                     flex: 3,
                   ),
                 ],
